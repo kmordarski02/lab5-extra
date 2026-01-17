@@ -5,4 +5,5 @@ r = redis.Redis(host=redis_host, port=6379, decode_responses=True)
 print("Worker gotowy...")
 while True:
     task = r.brpop("tasks")
-    print(f"Wykonano zadanie: {task}")
+    print(f"Wykonano zadanie:", task, flush=True)
+    sys.stdout.flush()
